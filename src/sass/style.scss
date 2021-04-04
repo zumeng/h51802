@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+// 定义变量，保存宽度
+$w : 200px;
+$color : #827392;
+
+@import "another";
+
+// sass
+/* .container */
+.container {
+	width: $w / 3;
+	height: 500px;
+	background: $color;
+
+	div {
+		width: 100px;
+		height: 300px;
+		background: {
+			color : #f00;
+			image : url(../images/bg.png);
+		}
+
+		h1, h2, h3{
+			font-weight: 500;
+		}
+
+		span {
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+		}
+
+		.link {
+			&:link {text-decoration: none;}
+			&:visited {text-decoration: none;}
+		}
+	}
+}
+
+// 定义混合器，复用代码片段
+@mixin box ($h:300px) {
+	border: 1px solid #666;
+	border-radius: 5px; 
+	padding: 5px;
+	margin: 5px;
+	height: $h;
+}
+
+.test1 {
+	@include box;
+	width: 100px;
+	position: absolute;
+	top : 0;
+	left : 50px;
+}
+
+.test2 {
+	@include box(200px);
+	line-height: 30px;
+}
+
+.test3 {
+	@extend .test2;
+	font-size: 16px;
+}
+
+.test4 {
+	@if $w > 1000px {
+		width: $w;
+	} @else {
+		width : $w + 200px;
+	}
+}
+
+@for $var from 1 through 10 {
+	.p-#{$var} {
+		padding: #{$var}px;
+	}
+}

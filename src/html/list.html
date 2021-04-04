@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品列表</title>
+	<style type="text/css">
+		.buy {
+			border:1px solid #ccc;
+			border-radius: 5px;
+			padding:5px;
+			width: 200px;
+			display: inline-block;
+			margin: 5px;
+		}
+
+		.add {
+			border:1px solid;
+			width:100px;
+			text-align: center;
+			line-height: 30px;
+			cursor: pointer;
+		}
+		.sidebar {
+			width:100px;
+			height:100%;
+			position: fixed;
+			top: 0;
+			right: 0;
+			background: #000;
+		}
+
+		.cart {
+			width: 50px;
+			height: 100px;
+			background: #fff;
+			position: absolute;
+			top:200px;
+			left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<a href="cart.html">查看购物车</a>
+	<h1>推荐购买：</h1>
+
+	<div class="box">
+		
+	</div>
+
+	<div class="sidebar">
+		<div class="cart">购物车</div>
+	</div>
+
+	<!-- 模板 -->
+	<div class="template" style="display: none">
+		<img class="img" src="../images/img1.jpg">
+		<div class="desc">华为-荣耀9</div>
+		<div class="price">1199</div>
+		<div class="id" style="display: none;">1</div>
+		<div class="add">加入购物车</div>
+	</div>
+
+	<script src="../lib/jquery/jquery-1.12.4.min.js"></script>
+	<script src="../lib/jquery-plugins/jquery.cookie.js"></script>
+	<script src="../lib/jquery-plugins/jquery.fly.min.js"></script>
+	<script src="../js/list.js"></script>
+</body>
+</html>

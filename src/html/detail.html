@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>放大镜</h1>
+	<img class="zoom" src="../images/zoom/middle.jpg" data-zoom-image="../images/zoom/big.jpg">
+
+	<script src="../lib/jquery/jquery-1.12.4.min.js"></script>
+	<script src="../lib/jquery-plugins/jquery.elevateZoom-3.0.8.min.js"></script>
+	<script>
+		$(function(){
+			$(".zoom").elevateZoom({
+				zoomType : "lens",
+			    lensShape : "round",
+			    containLensZoom : true,
+			    lensSize : 200
+	   			// scrollZoom : true
+			});
+		});
+	</script>
+</body>
+</html>

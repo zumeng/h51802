@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车页面</title>
+	<style type="text/css">
+		.minus, .add {
+			width: 40px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border:1px solid;
+			display: inline-block;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>显示购物车</h1>
+	<table class="tab_cart" border="1">
+		<thead>
+			<tr>
+				<th><label><input type="checkbox" class="ck_all">全选</label></th>
+				<th>序号</th>
+				<th>商品图片</th>
+				<th>商品描述</th>
+				<th>单价</th>
+				<th>数量</th>
+				<th>小计</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>合计</td>
+				<td colspan="7" class="total_pay">0.00</td>
+			</tr>
+		</tfoot>
+	</table>
+
+	<!-- 使用 artTemplate 模板引擎语法来定义模板 -->
+	<script type="text/html" id="cart_template">
+		{{each products prod}}
+		<tr data-id="{{prod.id}}">
+			<td><input type="checkbox" class="ck_prod"></td>
+			<td class="id">{{ prod.id }}</td>
+			<td><img src="{{prod.img}}" class="img"></td>
+			<td class="desc">{{prod.desc}}</td>
+			<td class="price">{{prod.price}}</td>
+			<td><span class="minus">-</span><input type="text" value="{{prod.amount}}" size="2" class="amount"><span class="add">+</span></td>
+			<td class="sub">{{(prod.price*prod.amount).toFixed(2)}}</td>
+			<td><a href="javascript:void(0);" class="del">删除</a></td>
+		</tr>
+		{{/each}}
+	</script>
+
+	<script src="../lib/jquery/jquery-1.12.4.min.js"></script>
+	<script src="../lib/jquery-plugins/jquery.cookie.js"></script>
+	<script src="../lib/artTemplate/template-web.js"></script>
+	<script src="../js/cart.js"></script>
+</body>
+</html>
